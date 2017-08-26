@@ -8,9 +8,9 @@ from PIL import Image
 import os
 import time
 
-dir = "/home/epicpi/" #working directory for this capture
+dir = "/home/epicpi/Downloads/" #working directory for this capture
 x = 0
-pages = 243
+pages = 1
 wait = 4
 
 #captures first image and sizes the pdf pages accordingly
@@ -18,6 +18,7 @@ im=ImageGrab.grab(bbox=(1620,24,2646,1280)) # X1,Y1,X2,Y2
 im.save(dir+"im.png")
 cover = Image.open(dir+"im.png")
 width, height = cover.size
+os.remove("im.png")
 
 pdf = FPDF(unit = "pt", format = [width, height])
 m = PyMouse()
